@@ -88,6 +88,9 @@
             this.btnLoadFromVlt = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabAdvancediLogicConfig.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -370,6 +373,7 @@
             // 
             // tabLifecycleRules
             // 
+            this.tabLifecycleRules.Controls.Add(this.groupBox9);
             this.tabLifecycleRules.Controls.Add(this.groupBox6);
             this.tabLifecycleRules.Controls.Add(this.groupBox5);
             this.tabLifecycleRules.Location = new System.Drawing.Point(4, 30);
@@ -640,11 +644,13 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.label1);
+            this.groupBox8.Controls.Add(this.checkBox1);
             this.groupBox8.Controls.Add(this.lblPropagateVltProps);
             this.groupBox8.Controls.Add(this.chckBoxPropagateProps);
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(586, 128);
+            this.groupBox8.Size = new System.Drawing.Size(586, 200);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Vault Properties";
@@ -654,7 +660,7 @@
             this.lblPropagateVltProps.AutoSize = true;
             this.lblPropagateVltProps.Location = new System.Drawing.Point(190, 20);
             this.lblPropagateVltProps.Name = "lblPropagateVltProps";
-            this.lblPropagateVltProps.Size = new System.Drawing.Size(390, 65);
+            this.lblPropagateVltProps.Size = new System.Drawing.Size(358, 78);
             this.lblPropagateVltProps.TabIndex = 9;
             this.lblPropagateVltProps.Text = resources.GetString("lblPropagateVltProps.Text");
             // 
@@ -663,6 +669,7 @@
             this.chckBoxPropagateProps.AutoSize = true;
             this.chckBoxPropagateProps.Checked = true;
             this.chckBoxPropagateProps.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chckBoxPropagateProps.Enabled = false;
             this.chckBoxPropagateProps.Location = new System.Drawing.Point(6, 19);
             this.chckBoxPropagateProps.Name = "chckBoxPropagateProps";
             this.chckBoxPropagateProps.Size = new System.Drawing.Size(171, 17);
@@ -726,6 +733,40 @@
             this.folderBrowserDialog1.Description = "Select Folder";
             this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialog1.SelectedPath = "C:\\";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(190, 121);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(337, 52);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Item properties are shared as Rule Arguments.\r\n(NameValueMap = Item.<Vault Proper" +
+    "ty Name> | Vault Property Value.\r\n\r\nApplies to Primary and Documentation Link Ty" +
+    "pes only.\r\n";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(6, 120);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(148, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Propagate Item Properties";
+            this.toolTip1.SetToolTip(this.checkBox1, "Shares all Properties of the processed file as rule arguments.");
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Location = new System.Drawing.Point(6, 223);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(579, 189);
+            this.groupBox9.TabIndex = 2;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Queue Post Job Tasks";
             // 
             // iLogicJobAdminForm
             // 
@@ -835,5 +876,8 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label lblPropagateVltProps;
         private System.Windows.Forms.CheckBox chckBoxPropagateProps;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox9;
     }
 }
