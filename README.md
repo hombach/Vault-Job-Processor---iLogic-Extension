@@ -14,7 +14,7 @@ Options allow to save iLogic logging per job.
 
 REQUIREMENTS:
 ---------------------------------
-Vault Workgroup, Vault Professional 2021. Note - The sample msi installer checks for Vault Professional !
+Vault Workgroup, Vault Professional 2021. Note - The sample msi installer checks for Vault Professional!
 This job leverages the Vault Inventor Server component and does not require Inventor installation or Inventor license.
 The job is valid for any Vault configuration fulfilling these requirements:
 - Enforce Workingfolder = Enabled
@@ -31,12 +31,11 @@ TO CONFIGURE: (Note - Using the installer obsoletes step 1 and 6)
 1) Copy the folder Autodesk.VltInvSrv.iLogicSampleJob to %ProgramData%\Autodesk\Vault 2021\Extensions\.
 2) Start Vault Explorer and configure the iLogic Job environment: Tools -> iLogic Job Administration...; first time load will bring up an error message, that no configuration could be loaded.
 3) Edit the configuration options and Save To Vault. Even if empty values are saved to Vault, the error mentioned before will no longer occure.
-4) Manual Job Submission - To use the manual Job submission, you need to configure and save the Tab 'User Rules'. A single external rule file is the minimum configuration.
+4) Manual Job Submission - To use the manual job submission, you need to configure and save the tab 'User Rules'. A single external rule file is the minimum configuration.
 	To submit a job, select a file (Inventor only ;)) go to Actions -> Queue iLogic Job and select the rule to be run against the selected file.
 5) Automatic Job Submission. Configure the Tab 'Lifecycle Rule(s)' and save to Vault. Add the job name to the Job Queue activating job transitions. To achieve this, integrate this job into a custom lifecycle transition by adding the Job-Type name
 "Autodesk.VltInvSrv.iLogicSampleJob" to the transition's 'Custom Job Types' tab.
-6) To enable iLogic logging copy the file iLogicLogger.config to the C:\Program Files\Autodesk\Vault Client 2021\Explorer\Inventor Server\Bin\. Enable iLogic Logging in the configuration
-Tab "Advanced iLogic Configuration".
+6) To enable iLogic logging copy the file iLogicLogger.config to the %ProgramFiles%\Autodesk\Vault Client 2021\Explorer\Inventor Server\Bin\. Enable iLogic Logging in the configuration tab "Advanced iLogic Configuration".
 
 DISCLAIMER:
 ---------------------------------
