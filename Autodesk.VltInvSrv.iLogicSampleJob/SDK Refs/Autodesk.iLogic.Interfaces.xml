@@ -6,28 +6,19 @@ Autodesk.iLogic.Interfaces
 </name>
 </assembly>
 <members>
-<member name="T:Autodesk.iLogic.Interfaces.My.Resources.Resources">
-<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member>
-<member name="P:Autodesk.iLogic.Interfaces.My.Resources.Resources.ResourceManager">
-<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member>
-<member name="P:Autodesk.iLogic.Interfaces.My.Resources.Resources.Culture">
-<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member>
 <member name="T:Autodesk.iLogic.Interfaces.DoubleForEquals">
  <summary>
  Encapsulated Double value type, with an equals operator that does not insist on strict equality. 
  This provides iLogic rule authors with the ability to easily compare two double values, without having to explicitly round the
  values or compare within a tolerance.
  The values are stored in double precision (approximately 15 decimal digits), but comparisons are made in single precision (approximately 6 decimal digits).
+ </summary>
+</member>
+<member name="M:Autodesk.iLogic.Interfaces.DoubleForEquals.ObjectToDouble(System.Object)">
+ <summary>
+ For testing. This will fail on a DoubleForEquals that has been cast to an Object.
+ However, such code works in a rule. Rules are compiled and running against .NET 7+
+ This code is compiled against .NET Standard.
  </summary>
 </member>
 <member name="T:Autodesk.iLogic.Interfaces.DoubleUtil">
@@ -120,8 +111,8 @@ Autodesk.iLogic.Interfaces
  Runs an external rule.
  </summary>
  <param name="doc">The document to be used as the context in which the rule is run.</param>
- <param name="ruleName">The filename. This can be a relative path.
- The file must have  a valid extension, but this argument does not need to include the extension.
+ <param name="ruleName">The filename. This can include a relative or absolute path.
+ The file must have a valid extension, but this argument does not need to include the extension.
  </param>
  <returns>Zero if successful.</returns>
  <remarks>iLogic will look for the file in the folder of the current document, in the workspace folder, and in the external rule directories.</remarks>
@@ -148,8 +139,8 @@ Autodesk.iLogic.Interfaces
  Runs an external rule, also passing arguments to the rule.
  </summary>
  <param name="doc">The document to be used as the context in which the rule is run.</param>
- <param name="ruleName">The filename. This can be a relative path.
- The file must have  a valid extension, but this argument does not need to include the extension.
+ <param name="ruleName">The filename. This can include a relative or absolute path.
+ The file must have a valid extension, but this argument does not need to include the extension.
  </param>
  <param name="ruleArguments">Arguments to pass to the rule</param>
  <returns>Zero if successful.</returns>
@@ -701,12 +692,17 @@ Autodesk.iLogic.Interfaces
 </member>
 <member name="F:Autodesk.iLogic.Interfaces.ExcelEngine.Internal">
  <summary>
- Use the internal Excel library that is installed with Inventor.
+ Use the internal Excel library (LibXL) that is installed with Inventor.
  </summary>
 </member>
 <member name="F:Autodesk.iLogic.Interfaces.ExcelEngine.COM">
  <summary>
  Use the Excel COM interface (through .NET interop).
+ </summary>
+</member>
+<member name="F:Autodesk.iLogic.Interfaces.ExcelEngine.LibreCalc">
+ <summary>
+ Use LibreCalc to access Excel files
  </summary>
 </member>
 <member name="T:Autodesk.iLogic.Interfaces.IManagedItem`1">
@@ -2321,6 +2317,13 @@ Autodesk.iLogic.Interfaces
  </summary>
  <returns></returns>
 </member>
+<member name="P:Autodesk.iLogic.Interfaces.ILowLevelSupport.RuleFullFileName">
+ <summary>
+ Gets the full file name (including directory) of the current rule, if it is an external rule.
+ For a rule that is stored within a Inventor document, this returns an empty string.
+ </summary>
+ <returns></returns>
+</member>
 <member name="P:Autodesk.iLogic.Interfaces.ILowLevelSupport.Automation">
  <summary>
  Gets the Automation object. This provides the iLogic API functions.
@@ -2527,6 +2530,11 @@ Autodesk.iLogic.Interfaces
  The form was closed by clicking a rule button that has its "On Click Action" set to "Apply and then close and then run rule".
  </summary>
 </member>
+<member name="F:Autodesk.iLogic.Interfaces.FormResult.NotShown">
+ <summary>
+ The form was not shown. This will be returned if the code is running on Inventor Server.
+ </summary>
+</member>
 <member name="T:Autodesk.iLogic.Interfaces.FormReturnValue">
  <summary>
  The full form return value, including the FormResult.  If Result is RuleButtonClose or RuleButtonApplyAndClose, RuleName
@@ -2589,8 +2597,9 @@ Autodesk.iLogic.Interfaces
 </member>
 <member name="M:Autodesk.iLogic.Interfaces.ICadDoc.Launch(System.String)">
  <summary>
- Launches or runs a file in the Windows operating system.  If a data file is specified, it opens in its native application. If an executable file (.exe) is specified, it runs the program.
- If an Inventor file is specified, the file will be opened in the current Inventor session.
+ Launches or opens a file. A non-Inventor file will be opened in the application associated with it.
+ An Inventor file will be opened in the current Inventor session.
+ Some file extensions are not supported.
  </summary>
  <param name="fileName">Absolute or relative path with filename.</param>
  <returns>The process created, or the current Inventor process.</returns>
@@ -3039,6 +3048,46 @@ Autodesk.iLogic.Interfaces
  Gets the complete list of arguments.
  </summary>
  <returns>The list of arguments.</returns>
+</member>
+<member name="P:Autodesk.iLogic.Interfaces.IRuleArguments.VaultCheckIn">
+ <summary>
+ Arguments for the Before Vault Check-in event.
+ This can be used to get information about the check-in, and optionally to cancel it.
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:Autodesk.iLogic.Interfaces.IVaultCheckinArguments">
+ <summary>
+ Arguments for the Before Vault Check-in event.
+ </summary>
+</member>
+<member name="P:Autodesk.iLogic.Interfaces.IVaultCheckinArguments.InProgress">
+ <summary>
+ This will be true if there is a check-in in progress.
+ </summary>
+</member>
+<member name="P:Autodesk.iLogic.Interfaces.IVaultCheckinArguments.FullFileName">
+ <summary>
+ The full filename of the current file to be checked in.
+ </summary>
+</member>
+<member name="P:Autodesk.iLogic.Interfaces.IVaultCheckinArguments.AllFileNames">
+ <summary>
+ In the overall check-in command, this is the list of all files being checked in.
+ </summary>
+</member>
+<member name="P:Autodesk.iLogic.Interfaces.IVaultCheckinArguments.Cancel">
+ <summary>
+ Set this to True to cancel the check-in operation. This works only if there is a check-in currently in process.
+ This will cancel the current operation for all files.
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:Autodesk.iLogic.Interfaces.IVaultCheckinArguments.ReasonsForCancel">
+ <summary>
+ One or more messages to describe why the check-in was canceled (optional).
+ </summary>
+ <returns></returns>
 </member>
 <member name="T:Autodesk.iLogic.Interfaces.IManagedComponents">
  <summary>

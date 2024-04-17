@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Autodesk")]
 [assembly: AssemblyProduct("iLogic-VaultInventorServer Library")]
-[assembly: AssemblyCopyright("Copyright © 2023 Autodesk, Markus Koechl")]
+[assembly: AssemblyCopyright("Copyright © 2024 Autodesk, Markus Koechl")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2024.2.0.0")]
-[assembly: AssemblyFileVersion("2024.2.0.0")]
+[assembly: AssemblyVersion("2025.0.0.0")]
+[assembly: AssemblyFileVersion("2025.0.0.0")]
