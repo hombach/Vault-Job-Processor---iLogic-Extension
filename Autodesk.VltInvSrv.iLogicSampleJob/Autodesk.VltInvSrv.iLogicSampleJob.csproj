@@ -64,49 +64,60 @@
     <Reference Include="Autodesk.Connectivity.Explorer.Extensibility, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.Connectivity.Explorer.Extensibility.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.Connectivity.Explorer.ExtensibilityTools, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.Connectivity.Explorer.ExtensibilityTools.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.Connectivity.Extensibility.Framework, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.Connectivity.Extensibility.Framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.Connectivity.JobProcessor.Extensibility, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.Connectivity.JobProcessor.Extensibility.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.Connectivity.WebServices, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.Connectivity.WebServices.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.DataManagement.Client.Framework, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.DataManagement.Client.Framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.DataManagement.Client.Framework.Forms, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.DataManagement.Client.Framework.Forms.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.DataManagement.Client.Framework.Vault, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.DataManagement.Client.Framework.Vault.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.DataManagement.Client.Framework.Vault.Forms, Version=30.0.0.0, Culture=neutral, PublicKeyToken=215b0879a7566597, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.DataManagement.Client.Framework.Vault.Forms.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Autodesk.iLogic.Interfaces, Version=29.0.16200.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\Autodesk.iLogic.Interfaces.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Autodesk.Inventor.Interop, Version=29.0.0.0, Culture=neutral, PublicKeyToken=d84147f8b4276564, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>SDK Refs\Autodesk.Inventor.Interop.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v22.2">
+    <Reference Include="DevExpress.Utils.v22.2, Version=22.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>SDK Refs\DevExpress.Utils.v22.2.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
